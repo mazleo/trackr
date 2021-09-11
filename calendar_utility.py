@@ -1,6 +1,7 @@
 class CalendarUtility:
     CALENDAR_NAME = 'trackr'
     CALENDAR_DESCRIPTION = 'A more accurate history of tasks. trackr imports timeBro timesheet CSV exports for more accurate time tracking.'
+    CALENDAR_TIMEZONE = 'UTC'
 
     @staticmethod
     def get_calendar_id(service):

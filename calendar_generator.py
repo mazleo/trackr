@@ -9,7 +9,8 @@ class CalendarGenerator:
         if not exists:
             calendar_entry = {
                 'summary': CalendarUtility.CALENDAR_NAME,
-                'description': CalendarUtility.CALENDAR_DESCRIPTION
+                'description': CalendarUtility.CALENDAR_DESCRIPTION,
+                'timeZone': CalendarUtility.CALENDAR_TIMEZONE
             }
 
             service.calendars().insert(body=calendar_entry).execute()
