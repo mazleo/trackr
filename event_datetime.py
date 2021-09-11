@@ -16,6 +16,9 @@ class EventDateTime:
         self.end_minute = int(end_time_values[1])
         self.end_second = int(end_time_values[2])
 
+        if self.start_hour < 4:
+            self.day += 1
+
     def __str__(self):
         return f'{str(self.year)}-{str(self.month)}-{str(self.day)} {str(self.start_hour)}:{str(self.start_minute)}:{str(self.start_second)}.{str(self.start_millisecond)}-{str(self.end_hour)}:{str(self.end_minute)}:{str(self.end_second)}.{str(self.end_millisecond)}'
 
