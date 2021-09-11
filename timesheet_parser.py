@@ -1,10 +1,9 @@
 from task_event import TaskEvent
 from event_datetime import EventDateTime
+from calendar_color import CalendarColor
 
-import sys
 import csv
 import datetime
-import time
 
 class TimesheetParser:
     @staticmethod
@@ -31,6 +30,8 @@ class TimesheetParser:
             task = row[4]
             comment = row[6]
 
+            task_event_color_id = CalendarColor.get_match_color_id(project, task)
+
             task_event_summary = TimesheetParser.format_summary(project, task)
             task_event_description = comment.strip()
 
@@ -38,7 +39,7 @@ class TimesheetParser:
             task_event_start_time = start_end_ical[0]
             task_event_end_time = start_end_ical[1]
 
-            task_events.append(TaskEvent(task_event_summary, task_event_description, task_event_start_time, task_event_end_time))
+            task_events.append(TaskEvent(task_event_summary, task_event_description, task_event_start_time, task_event_end_time, task_event_color_id))
 
         return task_events
 

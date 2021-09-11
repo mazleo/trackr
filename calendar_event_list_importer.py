@@ -17,7 +17,8 @@ class CalendarEventListImporter:
                 'end': {
                     'dateTime': task_event.end_time,
                     'timeZone': calendar_timezone
-                }
+                },
+                'colorId': task_event.color_id
             }
 
             event_response = service.events().insert(calendarId = calendar_id, body = calendar_event).execute()

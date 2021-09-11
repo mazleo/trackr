@@ -5,6 +5,7 @@ from timesheet_parser import TimesheetParser
 from calendar_authenticator import CalendarAuthenticator
 from calendar_utility import CalendarUtility
 from calendar_generator import CalendarGenerator
+from calendar_color import CalendarColor
 from calendar_event_list_importer import CalendarEventListImporter
 
 CLIENT_SECRET_FILE = sys.argv[1]
@@ -20,5 +21,9 @@ task_events = TimesheetParser.parse_csv_file_to_task_events(sys.argv[2])
 calendar_service = CalendarAuthenticator.get_calendar_service(CLIENT_SECRET_FILE, API_SCOPES, API_AUTH_PROMPT_MESSAGE, API_SUCCESS_MESSAGE)
 
 CalendarGenerator.generate_trackr_calendar_if_not_exists(calendar_service)
+
+calendar_bg_color = '#42D692'
+calendar_fg_color = '#ffffff'
+CalendarColor.insert_color_calendar(calendar_service, calendar_bg_color, calendar_fg_color)
 
 CalendarEventListImporter.import_task_events(task_events, calendar_service)
