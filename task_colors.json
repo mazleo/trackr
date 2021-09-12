@@ -1,0 +1,22 @@
+{
+    "calendar": {
+        "background": "#42D692",
+        "foreground": "#ffffff"
+    },
+    "tasks": {
+        "meetings": 11
+    },
+    "projects": {
+        "runbits": {
+            "project_names": [
+                "JO-7 Client Projects",
+                "JO-6 Study Spaces",
+                "JO-5 General Work"
+            ],
+            "color_id": 5
+        },
+        "jo-9 trackr": 4,
+        "jo-8 books": 3,
+        "jo-4 productivity": 1
+    }
+}

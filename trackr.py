@@ -22,8 +22,6 @@ calendar_service = CalendarAuthenticator.get_calendar_service(CLIENT_SECRET_FILE
 
 CalendarGenerator.generate_trackr_calendar_if_not_exists(calendar_service)
 
-calendar_bg_color = '#42D692'
-calendar_fg_color = '#ffffff'
-CalendarColor.insert_color_calendar(calendar_service, calendar_bg_color, calendar_fg_color)
+CalendarColor.insert_color_calendar(calendar_service)
 
 CalendarEventListImporter.import_task_events(task_events, calendar_service)
