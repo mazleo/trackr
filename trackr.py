@@ -10,6 +10,7 @@ from calendar_color import CalendarColor
 from calendar_event_list_importer import CalendarEventListImporter
 
 CLIENT_SECRET_FILE = sys.argv[1]
+TOKEN_FILE = 'token.json'
 API_SCOPES = [
     'https://www.googleapis.com/auth/calendar',
     'https://www.googleapis.com/auth/calendar.events'
@@ -17,7 +18,7 @@ API_SCOPES = [
 API_AUTH_PROMPT_MESSAGE = 'Please give the Calendar and Events permissions.'
 API_SUCCESS_MESSAGE = 'Calendar and Events permissions successfully granted.'
 
-calendar_service = CalendarAuthenticator.get_calendar_service(CLIENT_SECRET_FILE, API_SCOPES, API_AUTH_PROMPT_MESSAGE, API_SUCCESS_MESSAGE)
+calendar_service = CalendarAuthenticator.get_calendar_service(CLIENT_SECRET_FILE, TOKEN_FILE, API_SCOPES, API_AUTH_PROMPT_MESSAGE, API_SUCCESS_MESSAGE)
 
 file_names = FileUtility.extract_file_names(sys.argv)
 
