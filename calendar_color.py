@@ -31,6 +31,9 @@ class CalendarColor:
             if CalendarColor.is_task_meeting(project, task):
                 return task_colors_wrapper.get('tasks').get('meetings')
 
+            if CalendarColor.is_break(project, task):
+                return task_colors_wrapper.get('tasks').get('break')
+
             if CalendarColor.is_runbits_task(project, task_colors_wrapper):
                 return task_colors_wrapper.get('projects').get('runbits').get('color_id')
 
@@ -46,4 +49,11 @@ class CalendarColor:
     def is_runbits_task(project, task_colors_wrapper):
         if project in task_colors_wrapper.get('projects').get('runbits').get('project_names'):
             return True
+        return False
+
+    @staticmethod
+    def is_break(project, task):
+        if (project == 'JO-5 General Work' and task == 'General | Break') or (project == 'JO-4 Productivity' and task == 'General | Break'):
+            return True
+        
         return False

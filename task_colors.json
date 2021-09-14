@@ -4,7 +4,8 @@
         "foreground": "#ffffff"
     },
     "tasks": {
-        "meetings": 11
+        "meetings": 11,
+        "break": 9
     },
     "projects": {
         "runbits": {
