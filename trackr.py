@@ -1,5 +1,6 @@
 import sys
 
+from file_utility import FileUtility
 from timesheet_parser import TimesheetParser
 
 from calendar_authenticator import CalendarAuthenticator
@@ -16,12 +17,15 @@ API_SCOPES = [
 API_AUTH_PROMPT_MESSAGE = 'Please give the Calendar and Events permissions.'
 API_SUCCESS_MESSAGE = 'Calendar and Events permissions successfully granted.'
 
-task_events = TimesheetParser.parse_csv_file_to_task_events(sys.argv[2])
-
 calendar_service = CalendarAuthenticator.get_calendar_service(CLIENT_SECRET_FILE, API_SCOPES, API_AUTH_PROMPT_MESSAGE, API_SUCCESS_MESSAGE)
 
-CalendarGenerator.generate_trackr_calendar_if_not_exists(calendar_service)
+file_names = FileUtility.extract_file_names(sys.argv)
 
-CalendarColor.insert_color_calendar(calendar_service)
+for file_name in file_names:
+    task_events = TimesheetParser.parse_csv_file_to_task_events(file_name)
 
-CalendarEventListImporter.import_task_events(task_events, calendar_service)
+    CalendarGenerator.generate_trackr_calendar_if_not_exists(calendar_service)
+
+    CalendarColor.insert_color_calendar(calendar_service)
+
+    CalendarEventListImporter.import_task_events(task_events, calendar_service)
