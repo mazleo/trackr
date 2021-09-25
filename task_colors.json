@@ -12,12 +12,14 @@
             "project_names": [
                 "JO-7 Client Projects",
                 "JO-6 Study Spaces",
-                "JO-5 General Work"
+                "JO-5 General Work",
+                "JO-10 Internal Projects"
             ],
             "color_id": 5
         },
         "jo-9 trackr": 4,
         "jo-8 books": 3,
-        "jo-4 productivity": 1
+        "jo-4 productivity": 1,
+        "jo-11 learning": 2
     }
 }
