@@ -53,5 +53,7 @@ class TimesheetParser:
 
         start_datetime = datetime.datetime(event_datetime.year, event_datetime.month, event_datetime.day, hour=event_datetime.start_hour, minute=event_datetime.start_minute, second=event_datetime.start_second)
         end_datetime = datetime.datetime(event_datetime.year, event_datetime.month, event_datetime.day, hour=event_datetime.end_hour, minute=event_datetime.end_minute, second=event_datetime.end_second)
+        if start_datetime > end_datetime:
+            end_datetime = datetime.datetime(event_datetime.year, event_datetime.month, event_datetime.day + 1, hour=event_datetime.end_hour, minute=event_datetime.end_minute, second=event_datetime.end_second)
 
         return [start_datetime.isoformat(), end_datetime.isoformat()]
